@@ -1,0 +1,14 @@
+import "./globals.css";
+
+export const metadata = {
+  title: "Technorian — Redemption of the Throne",
+  description: "Flagship tech event experience.",
+};
+
+export default function RootLayout({ children }) {
+  return (
+    <html lang="en">
+      <body className="page-shell">{children}</body>
+    </html>
+  );
+}
