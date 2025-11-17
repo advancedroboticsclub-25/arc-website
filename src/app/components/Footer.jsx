@@ -12,13 +12,13 @@ const teamMembers = [
 ];
 
 const links = [
-  { name: "X (Twitter)", url: "#" },
-  { name: "LinkedIn", url: "#" },
-  { name: "YouTube", url: "#" },
-  { name: "Instagram", url: "#" },
-  { name: "News", url: "#" },
-  { name: "Company", url: "#" },
-  { name: "Contact Us", url: "#" },
+  { name: "Facebook", url: "https://www.facebook.com/arcacem" },
+  { name: "Instagram", url: "https://www.instagram.com/arc.acem/" },
+  //{ name: "LinkedIn", url: "#" },
+  //{ name: "YouTube", url: "#" },
+  //{ name: "News", url: "#" },
+  //{ name: "Company", url: "#" },
+  { name: "Contact Us", url: "https://www.facebook.com/arcacem" },
 ];
 
 // Using a custom font stack for the data-terminal look
@@ -26,26 +26,11 @@ const terminalFont = "font-mono tracking-tight";
 
 // College Logo SVG path (Placeholder: Replace with your actual college logo SVG)
 const CollegeLogo = () => (
-  <svg
-    className="w-14 h-14 sm:w-16 sm:h-16 md:w-20 md:h-20 text-white"
-    viewBox="0 0 100 100"
-    fill="none"
-    xmlns="http://www.w3.org/2000/svg"
-  >
-    <path
-      d="M50 0 L100 50 L50 100 L0 50 Z"
-      stroke="currentColor"
-      strokeWidth="5"
-      fill="none"
-    />
-    <path
-      d="M50 20 L80 50 L50 80 L20 50 Z"
-      stroke="currentColor"
-      strokeWidth="5"
-      fill="none"
-    />
-    <path d="M50 40 L60 50 L50 60 L40 50 Z" fill="currentColor" />
-  </svg>
+  <img
+    src="/logos/acem_logo.png"
+    alt="ACEM Logo"
+    className="w-21 h-21 sm:w-24 sm:h-24 md:w-30 md:h-30 object-contain"
+  />
 );
 
 const TerminalGridFooter = () => {

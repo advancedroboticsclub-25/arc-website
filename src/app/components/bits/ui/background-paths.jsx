@@ -126,7 +126,7 @@ function CountdownTimer({ target }) {
 // ----------------------
 export function BackgroundPaths({ title = "A Fusion of Bots, Bytes, and Brilliance." }) {
   const words = title.split(" ");
-  const eventDate = useMemo(() => new Date("2025-02-20T10:00:00"), []);
+  const eventDate = useMemo(() => new Date("2025-12-12T10:00:00+05:45"), []);
 
   const [canUseSpline, setCanUseSpline] = useState(false);
   const [splineLoaded, setSplineLoaded] = useState(false);
