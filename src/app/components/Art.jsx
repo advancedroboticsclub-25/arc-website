@@ -201,7 +201,7 @@
 // components/EventDirectory.jsx
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 // Put your real images in /public/events/* and adjust paths
 const EVENTS = [
@@ -210,50 +210,118 @@ const EVENTS = [
     label: "COZMO CLENCH",
     subtitle: "Autonomous dance-off squad.",
     image: "/events/cozmo.jpeg",
-    rulebook: "https://docs.google.com/document/d/your-cozmo-rulebook-link",
+    rulebook: "/rulebook/CozmoClench.pdf",
   },
   {
     id: "robo-war",
     label: "ROBO WAR",
     subtitle: "Metal vs metal, no mercy.",
     image: "/events/robo-war.webp",
-    rulebook: "https://docs.google.com/document/d/your-robo-war-rulebook-link",
+    rulebook: "/rulebook/TechfestOlympiad.pdf",
   },
   {
     id: "mesh-merize",
     label: "MESH-MERIZE",
     subtitle: "Graphics, shaders & glitch art showcase.",
     image: "/events/meshmerize.jpeg",
-    rulebook: "https://docs.google.com/document/d/your-mesh-merize-rulebook-link",
+    rulebook: "/rulebook/Meshmerize.pdf",
   },
   {
     id: "code-rush",
     label: "CODE RUSH",
     subtitle: "Timed hacking gauntlet.",
     image: "/events/code.jpg",
-    rulebook: "https://docs.google.com/document/d/your-code-rush-rulebook-link",
+    rulebook: "/rulebook/CodeCode.pdf",
   },
   {
     id: "circuit-chaos",
     label: "CIRCUIT CHAOS",
     subtitle: "Hardware puzzle arena.",
     image: "/events/circuit.jpg",
-    rulebook: "https://docs.google.com/document/d/your-circuit-chaos-rulebook-link",
+    rulebook: "/rulebook/TechfestOlympiad.pdf",
   },
 ];
 
 export default function EventDirectory() {
   const [activeId, setActiveId] = useState(null);
+  const [showRulebook, setShowRulebook] = useState(false);
   const activeEvent = EVENTS.find((e) => e.id === activeId) || null;
+
+  // Disable body scroll when PDF viewer is open
+  useEffect(() => {
+    if (showRulebook) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = 'unset';
+    }
+    
+    // Cleanup on unmount
+    return () => {
+      document.body.style.overflow = 'unset';
+    };
+  }, [showRulebook]);
 
   const handleImageClick = () => {
     if (activeEvent?.rulebook) {
-      window.open(activeEvent.rulebook, '_blank', 'noopener,noreferrer');
+      setShowRulebook(true);
     }
   };
 
   return (
-    <section className="bg-black text-white py-24 px-4 sm:px-8 lg:px-16">
+    <>
+      {/* Rulebook Modal Viewer */}
+      {showRulebook && activeEvent && (
+        <div 
+          className="fixed inset-0 z-50 bg-black/95 backdrop-blur-sm flex items-center justify-center p-4 overflow-hidden"
+          onClick={() => setShowRulebook(false)}
+        >
+          <div 
+            className="relative w-full h-full max-w-7xl max-h-[95vh] bg-zinc-900 rounded-2xl shadow-2xl overflow-hidden border border-white/10"
+            onClick={(e) => e.stopPropagation()}
+          >
+            {/* Header */}
+            <div className="bg-black/80 border-b border-white/10 p-4 flex justify-between items-center">
+              <div className="text-white">
+                <p className="text-xs uppercase tracking-widest text-white/60">Rulebook</p>
+                <p className="text-lg font-semibold">{activeEvent.label}</p>
+              </div>
+              <div className="flex items-center gap-3">
+                <a
+                  href={activeEvent.rulebook}
+                  download
+                  className="px-4 py-2 bg-white/10 hover:bg-white/20 text-white text-sm rounded-lg transition-colors border border-white/20 flex items-center gap-2"
+                >
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                    <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+                    <polyline points="7 10 12 15 17 10" />
+                    <line x1="12" y1="15" x2="12" y2="3" />
+                  </svg>
+                  Download
+                </a>
+                <button
+                  onClick={() => setShowRulebook(false)}
+                  className="w-10 h-10 flex items-center justify-center bg-white/10 hover:bg-white/20 rounded-full transition-colors backdrop-blur-sm border border-white/20"
+                >
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2">
+                    <path d="M18 6L6 18M6 6l12 12" />
+                  </svg>
+                </button>
+              </div>
+            </div>
+
+            {/* PDF Viewer */}
+            <div className="w-full h-[calc(100%-5rem)]">
+              <iframe
+                src={`${activeEvent.rulebook}#toolbar=0&navpanes=0&scrollbar=1`}
+                className="w-full h-full"
+                title={`${activeEvent.label} Rulebook`}
+              />
+            </div>
+          </div>
+        </div>
+      )}
+
+      <section className="bg-black text-white py-24 px-4 sm:px-8 lg:px-16">
       {/* full-width container */}
       <div className="w-full mx-auto">
         {/* Top meta line */}
@@ -408,11 +476,9 @@ export default function EventDirectory() {
               {EVENTS.map((event) => {
                 const isActive = activeId === event.id;
                 return (
-                  <button
+                  <div
                     key={event.id}
-                    type="button"
                     onMouseEnter={() => setActiveId(event.id)}
-                    onFocus={() => setActiveId(event.id)}
                     className={`w-full text-left py-3 border-b border-white/10 flex justify-between items-center ${
                       isActive ? "text-white" : "text-white/60"
                     }`}
@@ -420,16 +486,17 @@ export default function EventDirectory() {
                     <span className="text-lg font-semibold">
                       {event.label}
                     </span>
-                    <a 
-                      href={event.rulebook}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      onClick={(e) => e.stopPropagation()}
+                    <button 
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        setActiveId(event.id);
+                        setShowRulebook(true);
+                      }}
                       className="text-[0.65rem] uppercase tracking-[0.25em] text-white/60 hover:text-white transition-colors px-3 py-1 border border-white/30 rounded-full hover:border-white/60"
                     >
                       View Details
-                    </a>
-                  </button>
+                    </button>
+                  </div>
                 );
               })}
             </div>
@@ -437,5 +504,6 @@ export default function EventDirectory() {
         </div>
       </div>
     </section>
+    </>
   );
 }
