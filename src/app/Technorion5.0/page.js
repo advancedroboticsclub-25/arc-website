@@ -6,6 +6,9 @@ import Carousel from "../components/Carousel";
 import Marquee from "../components/Marquee";
 import EventFaqs from "../components/Faqs";
 import AstonishingFooter from "../components/Footer";
+import RegistrationForms from "../components/Forms";
+import EventDetails from "../components/EventDetails";
+import AboutUs from "../components/AboutUs";
 
 export default function Home() {
   return (
@@ -15,8 +18,11 @@ export default function Home() {
         <TechEventStats />
         <HeroMain />
         <EventArtGallery />
+        <EventDetails />
+        <RegistrationForms />
         <EventFaqs />
         <Marquee />
+        <AboutUs />
         <AstonishingFooter />
         <Carousel />
       </div>

@@ -130,6 +130,8 @@ export function BackgroundPaths({ title = "A Fusion of Bots, Bytes, and Brillian
 
   const [canUseSpline, setCanUseSpline] = useState(false);
   const [splineLoaded, setSplineLoaded] = useState(false);
+  const [splineError, setSplineError] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
     // run on client only
@@ -140,6 +142,7 @@ export function BackgroundPaths({ title = "A Fusion of Bots, Bytes, and Brillian
     ).matches;
 
     const isSmallScreen = window.innerWidth < 768;
+    setIsMobile(isSmallScreen);
 
     // Strategy:
     // - no Spline on small screens or if reduced-motion
@@ -147,6 +150,24 @@ export function BackgroundPaths({ title = "A Fusion of Bots, Bytes, and Brillian
     if (!prefersReducedMotion && !isSmallScreen) {
       setCanUseSpline(true);
     }
+
+    // Suppress Spline-related console errors
+    const originalError = console.error;
+    console.error = (...args) => {
+      if (
+        typeof args[0] === 'string' && 
+        (args[0].includes('Spline') || 
+         args[0].includes('runtime') ||
+         args[0].includes('Missing property'))
+      ) {
+        return;
+      }
+      originalError.apply(console, args);
+    };
+
+    return () => {
+      console.error = originalError;
+    };
   }, []);
 
   return (
@@ -167,41 +188,60 @@ export function BackgroundPaths({ title = "A Fusion of Bots, Bytes, and Brillian
       >
         {/* Spline bot block + countdown */}
         <div className="w-full max-w-4xl mb-10 md:mb-12">
-          <div className="relative w-full aspect-[16/6] rounded-[2.5rem] bg-black/30 shadow-[0_40px_160px_rgba(0,0,0,1)] overflow-hidden">
-            {/* darker center so bot pops */}
-            <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(0,0,0,0.98)_0,rgba(0,0,0,0.94)_35%,rgba(0,0,0,0.6)_60%,transparent_80%)]" />
+          <div className={`relative w-full aspect-[16/6] rounded-[2.5rem] shadow-[0_40px_160px_rgba(0,0,0,1)] overflow-hidden ${
+            isMobile ? 'bg-transparent' : 'bg-black/30'
+          }`}>
+            {/* darker center so bot pops - hidden on mobile */}
+            {!isMobile && (
+              <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(0,0,0,0.98)_0,rgba(0,0,0,0.94)_35%,rgba(0,0,0,0.6)_60%,transparent_80%)]" />
+            )}
 
-            {/* countdown */}
-            <div className="absolute left-4 sm:left-6 top-4 sm:top-6 z-20 pointer-events-auto">
+            {/* countdown - centered on mobile, top-left on desktop */}
+            <div className={`absolute z-20 pointer-events-auto ${
+              isMobile 
+                ? 'inset-0 flex items-center justify-center' 
+                : 'left-4 sm:left-6 top-4 sm:top-6'
+            }`}>
               <CountdownTimer target={eventDate} />
             </div>
 
-            {/* content surface */}
-            <div className="absolute inset-0 flex items-center justify-center pointer-events-none cursor-none">
-              {/* If we decided not to use spline (mobile / reduced motion) → static image */}
-              {!canUseSpline && (
-             <BotPosterCard/>
-              )}
+            {/* content surface - only show on desktop */}
+            {!isMobile && (
+              <div className="absolute inset-0 flex items-center justify-center pointer-events-none cursor-none">
+                {/* If we decided not to use spline (reduced motion) → static image */}
+                {!canUseSpline && (
+                  <BotPosterCard/>
+                )}
 
-              {/* If we CAN use Spline, show skeleton until it's loaded */}
-              {canUseSpline && !splineLoaded && (
-                <div className="w-full h-full bg-[radial-gradient(circle_at_center,rgba(148,163,184,0.25)_0,rgba(15,23,42,1)_70%)] animate-pulse" />
-              )}
+                {/* If we CAN use Spline, show skeleton until it's loaded */}
+                {canUseSpline && !splineLoaded && (
+                  <div className="w-full h-full bg-[radial-gradient(circle_at_center,rgba(148,163,184,0.25)_0,rgba(15,23,42,1)_70%)] animate-pulse" />
+                )}
 
-              {canUseSpline && (
-                <div
-                  className={`w-full h-full transition-opacity duration-700 ${
-                    splineLoaded ? "opacity-100" : "opacity-0"
-                  }`}
-                >
-                  <Spline
-                    scene="https://prod.spline.design/DOb-XOtTm0p2HUPE/scene.splinecode"
-                    style={{ width: "100%", height: "100%" }}
-                    onLoad={() => setSplineLoaded(true)}
-                  />
-                </div>
-              )}
-            </div>
+                {canUseSpline && (
+                  <div
+                    className={`w-full h-full transition-opacity duration-700 ${
+                      splineLoaded ? "opacity-100" : "opacity-0"
+                    }`}
+                  >
+                    <Spline
+                      scene="https://prod.spline.design/DOb-XOtTm0p2HUPE/scene.splinecode"
+                      style={{ width: "100%", height: "100%" }}
+                      onLoad={() => setSplineLoaded(true)}
+                      onError={() => {
+                        setSplineError(true);
+                        setSplineLoaded(false);
+                      }}
+                    />
+                  </div>
+                )}
+
+                {/* Fallback if Spline fails to load */}
+                {canUseSpline && splineError && (
+                  <BotPosterCard/>
+                )}
+              </div>
+            )}
           </div>
         </div>
 
@@ -287,8 +327,8 @@ export function BackgroundPaths({ title = "A Fusion of Bots, Bytes, and Brillian
 
             {/* Arena list */}
             <ul
-              className="grid grid-cols-1 sm:grid-cols-2 gap-x-10 gap-y-2
-                         text-base sm:text-lg md:text-xl text-white/80"
+              className="grid grid-cols-3 sm:grid-cols-2 gap-x-4 gap-y-2
+                         text-sm sm:text-lg md:text-xl text-white/80"
             >
               <li>Robotics</li>
               <li>Coding</li>
