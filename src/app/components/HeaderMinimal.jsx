@@ -25,16 +25,27 @@ export default function HeaderMinimal() {
           </div>
 
           {/* Right: status / email chip */}
-          <a
-            href="mailto:technorian@acem.edu" // change to your real contact
-            className="pointer-events-auto inline-flex items-center gap-2 rounded-full border border-white/25 bg-black/60/80 backdrop-blur-sm px-3 sm:px-4 py-1.5 text-[0.65rem] sm:text-[0.7rem] md:text-xs font-medium tracking-[0.18em] uppercase text-white/80 hover:border-white/60 hover:bg-white/5 transition-all"
-          >
-            <span className="h-2 w-2 rounded-full bg-emerald-400 shadow-[0_0_12px_rgba(52,211,153,0.9)]" />
-            <span className="font-mono hidden sm:inline">
-              hello@technorian.live
-            </span>
-            <span className="font-mono sm:hidden">We&apos;re live</span>
-          </a>
+          <div className="flex items-center gap-3 md:gap-5">
+            <a
+              href="mailto:technorian@acem.edu" // change to your real contact
+              className="pointer-events-auto inline-flex items-center gap-2 rounded-full border border-white/25 bg-black/60/80 backdrop-blur-sm px-3 sm:px-4 py-1.5 text-[0.65rem] sm:text-[0.7rem] md:text-xs font-medium tracking-[0.18em] uppercase text-white/80 hover:border-white/60 hover:bg-white/5 transition-all"
+            >
+              <span className="h-2 w-2 rounded-full bg-emerald-400 shadow-[0_0_12px_rgba(52,211,153,0.9)]" />
+              <span className="font-mono hidden sm:inline">
+                hello@technorian.live
+              </span>
+              <span className="font-mono sm:hidden">We&apos;re live</span>
+            </a>
+
+            {/* ARC Logo - Desktop only */}
+            <div className="hidden md:block pointer-events-auto">
+              <img
+                src="/logos/arc.png"
+                alt="ARC Logo"
+                className="h-10 w-auto object-contain"
+              />
+            </div>
+          </div>
         </div>
       </div>
     </header>

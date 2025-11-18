@@ -211,13 +211,15 @@ const EVENTS = [
     subtitle: "Autonomous dance-off squad.",
     image: "/events/cozmo.jpeg",
     rulebook: "/rulebook/CozmoClench.pdf",
+    eventDetailId: "cozmo-clench",
   },
   {
     id: "robo-war",
     label: "ROBO WAR",
     subtitle: "Metal vs metal, no mercy.",
     image: "/events/robo-war.webp",
-    rulebook: "/rulebook/TechfestOlympiad.pdf",
+    rulebook: null,
+    eventDetailId: "techfest-olympiad", // Maps to Techfest Olympiad
   },
   {
     id: "mesh-merize",
@@ -225,6 +227,7 @@ const EVENTS = [
     subtitle: "Graphics, shaders & glitch art showcase.",
     image: "/events/meshmerize.jpeg",
     rulebook: "/rulebook/Meshmerize.pdf",
+    eventDetailId: "meshmerize",
   },
   {
     id: "code-rush",
@@ -232,13 +235,15 @@ const EVENTS = [
     subtitle: "Timed hacking gauntlet.",
     image: "/events/code.jpg",
     rulebook: "/rulebook/CodeCode.pdf",
+    eventDetailId: "codecode",
   },
   {
     id: "circuit-chaos",
     label: "CIRCUIT CHAOS",
     subtitle: "Hardware puzzle arena.",
     image: "/events/circuit.jpg",
-    rulebook: "/rulebook/TechfestOlympiad.pdf",
+    rulebook: null,
+    eventDetailId: "techfest-olympiad", // Maps to Techfest Olympiad
   },
 ];
 
@@ -489,8 +494,19 @@ export default function EventDirectory() {
                     <button 
                       onClick={(e) => {
                         e.stopPropagation();
-                        setActiveId(event.id);
-                        setShowRulebook(true);
+                        // Find and scroll directly to the event card
+                        const eventCard = document.querySelector(`[data-event-id="${event.eventDetailId}"]`);
+                        if (eventCard) {
+                          eventCard.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                          // Add a brief highlight effect
+                          setTimeout(() => {
+                            eventCard.style.transform = 'scale(1.02)';
+                            eventCard.style.transition = 'transform 0.3s ease';
+                            setTimeout(() => {
+                              eventCard.style.transform = 'scale(1)';
+                            }, 500);
+                          }, 100);
+                        }
                       }}
                       className="text-[0.65rem] uppercase tracking-[0.25em] text-white/60 hover:text-white transition-colors px-3 py-1 border border-white/30 rounded-full hover:border-white/60"
                     >
