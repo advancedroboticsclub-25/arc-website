@@ -95,6 +95,8 @@
 
 
 
+
+
 "use client";
 
 import React from "react";
@@ -102,113 +104,83 @@ import Image from "next/image";
 
 const forms = [
   {
-    title: "Competition Registration",
+    title: "COMPETITION",
     description:
-      "Register your team for Technorion 5.0 competitions and secure your spot in the bracket.",
+      "Register your team for Technorion 5.0 and secure your competition slot.",
     icon: "/logos/competition.svg",
     link: "https://docs.google.com/forms/d/1doDkZSDHo0hdghy39rDM3bf25KxHGJv0pCv8tqQeeLY/edit",
-    color: "text-blue-400",
   },
   {
-    title: "Food Stall Registration",
+    title: "FOOD STALL",
     description:
-      "Secure your vendor spot to set up a food stall and cater to thousands of attendees.",
+      "Register your food stall and showcase your culinary craft at the event.",
     icon: "/logos/food.svg",
     link: "https://docs.google.com/forms/d/1QtHGVN8DTIc9O-mo1c674_Py-I4RhnJtZYbulX2Rn9Y/edit",
-    color: "text-green-400",
   },
   {
-    title: "Volunteer Registration",
+    title: "VOLUNTEERING",
     description:
-      "Join our dedicated staff team and help us build the future of this event.",
+      "Join our volunteer team and help execute Technorion 5.0 with excellence.",
     icon: "/logos/volunteer.svg",
     link: "https://docs.google.com/forms/d/1btLT4rlesZ3OH38yKYEizXgekeMI_BwcpPWCYILwny0/edit",
-    color: "text-purple-400",
   },
 ];
 
 export default function RegistrationForms() {
   return (
-    <section className="bg-black text-white py-24 px-4 sm:px-8 lg:px-16 relative overflow-hidden">
-      {/* Background */}
-      <div className="absolute inset-0 opacity-5">
-        <div className="w-full h-full bg-[size:30px_30px] bg-[repeating-linear-gradient(45deg,#202020_0,#202020_1px,transparent_1px,transparent_50%)]"></div>
-      </div>
+    <section className="bg-black text-white py-28 px-4 sm:px-8 lg:px-16">
+      {/* Header */}
+      <header className="text-center mb-24">
+        <p className="text-xs uppercase tracking-[0.35em]  text-blue-400/80 font-mono mb-4">
+          REGISTRATION
+        </p>
+        <h2 className="text-4xl sm:text-5xl font-medium tracking-tight">
+          Initiate Registration
+        </h2>
+        <p className="text-white/60 max-w-2xl mx-auto mt-4 text-sm sm:text-base">
+          Choose your registration pathway. All submissions are securely
+          processed.
+        </p>
+      </header>
 
-      <div className="max-w-7xl mx-auto relative z-10">
-        {/* Header */}
-        <header className="mb-16 text-center">
-          <p className="text-sm uppercase tracking-[0.4em] font-mono text-blue-400/80 mb-3">
-            REGISTRATION
-          </p>
-          <h2 className="text-3xl sm:text-4xl font-medium md:text-5xl font-extrabold">
-            INITIATE REGISTRATION
-          </h2>
-          <p className="text-white/60 text-base mt-4 max-w-3xl mx-auto font-light">
-            Select the appropriate registration pathway below. Data entry is
-            secured by end-to-end encryption.
-          </p>
-        </header>
+      {/* 3-Column Luxe Grid */}
+      <div className="grid grid-cols-1 md:grid-cols-3">
+        {forms.map((form, idx) => (
+          <a
+            key={idx}
+            href={form.link}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="
+              group flex flex-col justify-between
+              px-10 py-24 
+              border-t border-white/10
+              hover:bg-white/[0.03]
+              transition-all
+            "
+          >
+            {/* Centered Icon */}
+            <div className="flex justify-center mb-16">
+              <Image
+                src={form.icon}
+                alt={form.title}
+                width={100}
+                height={100}
+                className="opacity-90 group-hover:opacity-100 transition-opacity"
+              />
+            </div>
 
-        {/* Cards */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8">
-          {forms.map((form, index) => (
-            <a
-              key={index}
-              href={form.link}
-              target="_blank"
-              rel="noopener noreferrer"
-              className={`group relative bg-[#1a1a1a] border-b-4 border-l-2 ${form.color} rounded-xl p-8 
-                transition-all duration-300
-                hover:shadow-[0_0_10px_rgba(76,149,255,0.4)] hover:scale-[1.02]
-                hover:border-r-2 hover:border-t-2 hover:border-r-white/20 hover:border-t-white/20`}
-            >
-              {/* Icon */}
-              <div className="mb-6 relative">
-                <Image
-                  src={form.icon}
-                  alt={form.title}
-                  width={64}
-                  height={64}
-                  className="object-contain opacity-90"
-                />
-                <div
-                  className={`absolute -inset-1 rounded-full opacity-0 group-hover:opacity-30 transition-opacity duration-500`}
-                  style={{ boxShadow: `0 0 25px ${form.color}` }}
-                ></div>
-              </div>
+            {/* Title */}
+            <h3 className="text-3xl font-light tracking-wide mb-4">
+              {form.title}
+            </h3>
 
-              {/* Content */}
-              <h3 className="text-2xl font-bold mb-3">{form.title}</h3>
-              <p className="text-white/70 text-sm mb-6 font-light">
-                {form.description}
-              </p>
-
-              {/* CTA */}
-              <div
-                className={`flex items-center gap-3 text-sm font-semibold ${form.color} group-hover:gap-4 transition-all duration-300`}
-              >
-                <span>Initiate Sequence</span>
-                <svg
-                  className="w-4 h-4 group-hover:translate-x-1 transition-transform"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                  strokeWidth={2}
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    d="M14 5l7 7m0 0l-7 7m7-7H3"
-                  />
-                </svg>
-              </div>
-
-              {/* Accent */}
-              <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-white/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
-            </a>
-          ))}
-        </div>
+            {/* Description */}
+            <p className="text-white/60 text-sm max-w-xs leading-relaxed">
+              {form.description}
+            </p>
+          </a>
+        ))}
       </div>
     </section>
   );
