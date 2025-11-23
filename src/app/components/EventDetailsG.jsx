@@ -127,7 +127,7 @@ const REGISTRATION_INFO = {
   ]
 };
 
-export default function EventDetails() {
+export default function EventDetailsG() {
   const [selectedEvent, setSelectedEvent] = useState(null);
   const [showRulebook, setShowRulebook] = useState(false);
 

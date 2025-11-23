@@ -64,7 +64,7 @@ const TerminalGridFooter = () => {
         {/* COLUMN 2: College Logo */}
         <div className="p-6 sm:p-8 lg:p-10 flex flex-col items-center justify-center border-t md:border-t-0 border-gray-800">
           <CollegeLogo />
-          <p className="text-[0.65rem] sm:text-xs uppercase tracking-[0.2em] text-white/60 mt-4 text-center">
+          <p className="text-[0.65rem] sm:text-xs uppercase tracking-[0.2em]  text-blue-400/80 mt-4 text-center">
             [A.C.E.M]
           </p>
         </div>

@@ -7,8 +7,9 @@ import Marquee from "../components/Marquee";
 import EventFaqs from "../components/Faqs";
 import AstonishingFooter from "../components/Footer";
 import RegistrationForms from "../components/Forms";
-import EventDetails from "../components/EventDetails";
+import EventDetails from "../components/EventDetailstemp";
 import AboutUs from "../components/AboutUs";
+// import EventDetailsG from "../components/EventDetailsG";
 
 export default function Home() {
   return (
@@ -18,7 +19,7 @@ export default function Home() {
         <TechEventStats />
         <HeroMain />
         <EventArtGallery />
-        <EventDetails />
+        <EventDetails/>
         <RegistrationForms />
         <EventFaqs />
         <Marquee />

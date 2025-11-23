@@ -331,7 +331,7 @@ export default function EventDirectory() {
       <div className="w-full mx-auto">
         {/* Top meta line */}
         <header className="mb-14 text-center">
-          <p className="text-[0.7rem] sm:text-xs uppercase tracking-[0.35em] text-white/45 mb-3">
+          <p className="text-[0.7rem] sm:text-xs uppercase tracking-[0.35em]  text-blue-400/80 mb-3">
             Technorian · Event Directory
           </p>
           <h2 className="text-2xl sm:text-3xl md:text-4xl font-medium">

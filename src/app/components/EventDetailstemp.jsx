@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Registration from "./Register";
 
 const EVENT_DETAILS = [
   {
@@ -138,21 +139,7 @@ const EVENT_DETAILS = [
   }
 ];
 
-const REGISTRATION_INFO = {
-  general: [
-    "Register online through official ARC or Techfest website",
-    "Team ID will be provided upon registration",
-    "Additional registration via Advanced Robotic Club form required",
-    "Check official website for latest updates",
-    "Monitor ARC/Techfest email regularly (including spam folder)"
-  ],
-  requirements: [
-    "Valid student ID or institutional proof required",
-    "Participants must bring their own laptops for Code Code competition",
-    "Offline compilers required for Code Code (no internet allowed)",
-    "Team members from same institution (unless otherwise permitted)"
-  ]
-};
+
 
 export default function EventDetails() {
   const [selectedEvent, setSelectedEvent] = useState(null);
@@ -328,20 +315,20 @@ export default function EventDetails() {
       <section className="bg-black text-white py-24 px-4 sm:px-8 lg:px-16">
         <div className="max-w-7xl mx-auto">
           {/* Header */}
-          <header className="mb-16 text-center">
-            <p className="text-[0.7rem] sm:text-xs uppercase tracking-[0.35em] text-white/45 mb-3">
+          {/* <header className="mb-16 text-center">
+            <p className="text-[0.7rem] sm:text-xs uppercase tracking-[0.35em]  text-blue-400/80 mb-3">
               Technorion 5.0 · Event Information
             </p>
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl  mb-4 font-medium">
               Complete Event Guide
             </h2>
             <p className="text-white/60 text-base sm:text-lg max-w-3xl mx-auto">
               Everything you need to know about competitions, rules, and participation
             </p>
-          </header>
+          </header> */}
 
           {/* Registration Information */}
-          <div className="mb-20 bg-white/5 border border-white/10 rounded-2xl p-8 lg:p-12">
+          {/* <div className="mb-20 bg-white/5 border border-white/10 rounded-2xl p-8 lg:p-12">
             <h3 className="text-2xl font-bold mb-8 text-white flex items-center gap-3">
               <svg className="w-8 h-8 text-white/60" fill="currentColor" viewBox="0 0 20 20">
                 <path d="M9 2a1 1 0 000 2h2a1 1 0 100-2H9z"/>
@@ -373,7 +360,9 @@ export default function EventDetails() {
                 </ul>
               </div>
             </div>
-          </div>
+          </div> */} 
+
+          <Registration/>
 
           {/* Events Grid */}
           <div className="grid md:grid-cols-2 gap-6 lg:gap-8">
