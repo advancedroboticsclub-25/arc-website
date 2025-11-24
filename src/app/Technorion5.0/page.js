@@ -5,10 +5,11 @@ import { BackgroundPaths } from "../components/bits/ui/background-paths";
 import Carousel from "../components/Carousel";
 import Marquee from "../components/Marquee";
 import EventFaqs from "../components/Faqs";
-import AstonishingFooter from "../components/Footer";
+
 import RegistrationForms from "../components/Forms";
 import EventDetails from "../components/EventDetailstemp";
 import AboutUs from "../components/AboutUs";
+import Footer from "../components/Footer";
 // import EventDetailsG from "../components/EventDetailsG";
 
 export default function Home() {
@@ -20,11 +21,11 @@ export default function Home() {
         <HeroMain />
         <EventArtGallery />
         <EventDetails/>
-        <RegistrationForms />
+        <RegistrationForms /> 
         <EventFaqs />
         <Marquee />
         <AboutUs />
-        <AstonishingFooter />
+        <Footer/>
         <Carousel />
       </div>
     </>

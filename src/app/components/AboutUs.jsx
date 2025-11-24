@@ -167,7 +167,6 @@
 
 
 
-
 "use client";
 
 import { motion } from "framer-motion";
@@ -224,7 +223,7 @@ export default function AboutTimeline() {
           transition={{ duration: 0.8, ease: [0.19, 1, 0.22, 1] }}
           className="mb-16 lg:mb-24 text-center max-w-4xl mx-auto"
         >
-          <p className="text-sm uppercase tracking-[0.4em] font-mono text-blue-400/80 mb-3">
+          <p className="text-sm uppercase tracking-[0.3em] font-mono text-blue-400/80 mb-3">
             LEGACY & CHRONOLOGY
           </p>
           <h2 className="text-4xl sm:text-5xl md:text-6xl font-md mb-6">

@@ -1,11 +1,14 @@
 "use client";
 
+import Link from "next/link";
+
 export default function HeaderMinimal() {
   return (
     <header className="fixed inset-x-0 top-0 z-30 pointer-events-none">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-10">
         <div className="flex items-center justify-between py-3 sm:py-4">
-          {/* Left: Brand */}
+          {/* Left: Brand */} 
+          <Link href="/">
           <div className="flex items-center gap-3 sm:gap-4 pointer-events-auto">
             {/* Circular Logo */}
             <img
@@ -22,7 +25,8 @@ export default function HeaderMinimal() {
                 2025 · A.C.E.M
               </p>
             </div>
-          </div>
+          </div> 
+          </Link>
 
           {/* Right: status / email chip */}
           <div className="flex items-center gap-3 md:gap-5">

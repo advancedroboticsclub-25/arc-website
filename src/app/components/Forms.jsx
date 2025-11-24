@@ -153,8 +153,8 @@ export default function RegistrationForms() {
             rel="noopener noreferrer"
             className="
               group flex flex-col justify-between
-              px-10 py-24 
-              border-t border-white/10
+              px-10 py-24  
+              border-t border-white/10 
               hover:bg-white/[0.03]
               transition-all
             "

@@ -46,7 +46,7 @@ const RegistrationDataSlabs = () => {
   return (
     <section className="relative bg-black py-20 px-4 sm:px-8 lg:px-16 overflow-hidden">
       {/* --- Background Layers --- */}
-      {/* subtle radial glow */}
+      
       <div className="pointer-events-none absolute inset-0 opacity-70">
         <div className="absolute -top-40 left-1/2 -translate-x-1/2 w-[60rem] h-[60rem] bg-[radial-gradient(circle_at_center,_rgba(59,130,246,0.12),transparent_60%)]" />
         <div className="absolute bottom-[-20rem] right-[-10rem] w-[40rem] h-[40rem] bg-[radial-gradient(circle_at_center,_rgba(236,72,153,0.14),transparent_65%)]" />
