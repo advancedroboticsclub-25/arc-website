@@ -44,7 +44,7 @@ const DataGridIcon = (props) => (
 
 const RegistrationDataSlabs = () => {
   return (
-    <section className="relative bg-black py-20 px-4 sm:px-8 lg:px-16 overflow-hidden">
+    <section className="relative bg-black text-white py-20 px-4 sm:px-8 lg:px-16 overflow-hidden">
       {/* --- Background Layers --- */}
       
       <div className="pointer-events-none absolute inset-0 opacity-70">

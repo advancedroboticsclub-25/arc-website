@@ -10,6 +10,7 @@ import RegistrationForms from "../components/Forms";
 import EventDetails from "../components/EventDetailstemp";
 import AboutUs from "../components/AboutUs";
 import Footer from "../components/Footer";
+import RegistrationDataSlabs from "../components/Register";
 // import EventDetailsG from "../components/EventDetailsG";
 
 export default function Home() {
@@ -17,13 +18,17 @@ export default function Home() {
     <>
       <div className="min-h-screen h-full w-full flex flex-col">
         <BackgroundPaths title="A Fusion of Bots, Bytes, and Brilliance." />
-        <TechEventStats />
-        <HeroMain />
-        <EventArtGallery />
-        <EventDetails/>
-        <RegistrationForms /> 
-        <EventFaqs />
+        <TechEventStats /> 
         <Marquee />
+        <HeroMain /> 
+       <EventArtGallery /> 
+
+
+        <EventDetails/> 
+        <RegistrationDataSlabs/>
+      
+      
+        <EventFaqs />
         <AboutUs />
         <Footer/>
         <Carousel />

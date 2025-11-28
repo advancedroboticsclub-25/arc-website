@@ -295,23 +295,23 @@ export function BackgroundPaths({ title = "A Fusion of Bots, Bytes, and Brillian
               text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl 
               max-w-6xl mb-12 sm:mb-16"
           >
-            <span className="text-white">
-              Technorian demands more than standard tech fests.
-            </span>{" "}
-            <span className="text-slate-500">
-              You need arenas that test skill, creativity, and raw engineering
-              instinct.
-            </span>
+           <span className="text-white">
+  Your ticket to IIT Bombay's techfest awaits.
+</span>{" "}
+<span className="text-slate-500">
+  Compete in Technorian , conquer there—with complete accommodation and dining experiences curated for champions.
+</span>
           </h2>
 
           {/* Supporting paragraph */}
           <div className="max-w-3xl">
             <p className="text-sm sm:text-base md:text-lg leading-relaxed text-slate-400 mb-10 sm:mb-12">
-              This year’s Technorian transforms the campus into a live
-              engineering battleground. From autonomous robotics to real-time
-              coding duels, circuit debugging labs and immersive digital-art
-              experiments — every arena mirrors the unpredictability and
-              intensity of real-world tech building.
+            This year at Advanced College of Engineering & Mgmt, Technorian transforms our campus into a live
+  engineering battleground. From autonomous robotics to real-time
+  coding duels, circuit debugging labs and immersive digital-art
+  experiments — every arena mirrors the unpredictability and
+  intensity of real-world tech building.
+
             </p>
           </div>
 

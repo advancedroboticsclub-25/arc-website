@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import Registration from "./Register";
+
 
 const EVENT_DETAILS = [
   {
@@ -362,7 +362,7 @@ export default function EventDetails() {
             </div>
           </div> */} 
 
-          <Registration/>
+        
 
           {/* Events Grid */}
           <div className="grid md:grid-cols-2 gap-6 lg:gap-8">

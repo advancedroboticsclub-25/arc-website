@@ -50,7 +50,7 @@ const EventFaqs = () => {
   };
 
   return (
-    <section className="relative py-20 sm:py-24 px-6 lg:px-10 bg-black">
+    <section id="faq" className="relative py-20 sm:py-24 px-6 lg:px-10 bg-black">
       <div className="max-w-4xl mx-auto">
         {/* Section heading */}
         <header className="mb-10 sm:mb-12">

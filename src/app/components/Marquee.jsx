@@ -18,7 +18,7 @@ const imageLogos = [
 
 export default function Marquee() {
   return (
-    <div style={{ height: '200px', position: 'relative', overflow: 'hidden', backgroundColor:'black'}}>
+    <div className='flex items-center justify-center' style={{ height: '200px', position: 'relative', overflow: 'hidden', backgroundColor:'black'}}>
       {/* Basic horizontal loop */}
       <LogoLoop
         logos={imageLogos}
