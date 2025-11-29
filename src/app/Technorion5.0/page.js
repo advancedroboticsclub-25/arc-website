@@ -27,7 +27,7 @@ export default function Home() {
         <EventDetails/> 
         <RegistrationDataSlabs/>
       
-      
+      <RegistrationForms/>
         <EventFaqs />
         <AboutUs />
         <Footer/>
