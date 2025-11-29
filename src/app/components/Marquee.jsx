@@ -13,7 +13,11 @@ const imageLogos = [
   { src: "/company/company1.png", alt: "Company 1", href: "https://company1.com" },
   { src: "/company/company2.png", alt: "Company 2", href: "https://company2.com" },
   { src: "/company/company3.png", alt: "Company 3", href: "https://company3.com" }, 
-  { src: "/company/company4.png", alt: "Company 4", href: "https://company3.com" },
+  { src: "/company/company4.png", alt: "Company 4", href: "https://company3.com" }, 
+  { src: "/company/company5.png", alt: "Company 1", href: "https://company1.com" },
+  { src: "/company/company6.png", alt: "Company 2", href: "https://company2.com" },
+  { src: "/company/company7.jpeg", alt: "Company 3", href: "https://company3.com" }, 
+  { src: "/company/company8.svg", alt: "Company 4", href: "https://company3.com" },
 ];
 
 export default function Marquee() {
