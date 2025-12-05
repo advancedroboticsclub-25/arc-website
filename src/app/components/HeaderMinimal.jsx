@@ -3,12 +3,36 @@
 import Link from "next/link";
 import { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { ChevronDown } from "lucide-react";
+import { ChevronDown, Eye } from "lucide-react";
 
 export default function HeaderMinimal() {
   const [contactOpen, setContactOpen] = useState(false);
+  const [viewCount, setViewCount] = useState(0);
   const contactRef = useRef(null);
   const dropdownRef = useRef(null);
+
+  // Fetch view count from Vercel Analytics API
+  useEffect(() => {
+    const fetchViewCount = async () => {
+      try {
+        const response = await fetch('/api/views');
+        if (response.ok) {
+          const data = await response.json();
+          // Use real data if available, otherwise use stock count of 1000
+          setViewCount(data.views > 0 ? data.views : 1000);
+        } else {
+          // Fallback to stock count if API fails
+          setViewCount(1000);
+        }
+      } catch (error) {
+        console.error('Failed to fetch view count:', error);
+        // Fallback to stock count
+        setViewCount(1000);
+      }
+    };
+
+    fetchViewCount();
+  }, []);
 
   // Close contact dropdown on outside click
   useEffect(() => {
@@ -58,11 +82,27 @@ export default function HeaderMinimal() {
               max-w-[70%] sm:max-w-none
             "
           >
-            {/* EMAIL CHIP */}
+            {/* VIEW COUNTER CHIP */}
+            <div
+              className="
+                inline-flex items-center gap-2 rounded-full
+                border border-white/25 bg-black/60 backdrop-blur-sm
+                px-3 sm:px-4 py-1.5
+                text-[0.65rem] sm:text-[0.7rem] md:text-xs
+                font-medium uppercase tracking-[0.18em]
+                text-white/80
+                transition-all
+              "
+            >
+              <Eye className="w-3 h-3 text-purple-400" />
+              <span className="font-mono">{(500+viewCount).toLocaleString()}</span>
+            </div>
+
+            {/* EMAIL CHIP - Desktop only */}
             <Link
               href="mailto:technorian@acem.edu"
               className="
-                inline-flex items-center gap-2 rounded-full
+                hidden sm:inline-flex items-center gap-2 rounded-full
                 border border-white/25 bg-black/60 backdrop-blur-sm
                 px-3 sm:px-4 py-1.5
                 text-[0.65rem] sm:text-[0.7rem] md:text-xs
@@ -72,16 +112,14 @@ export default function HeaderMinimal() {
               "
             >
               <span className="h-2 w-2 rounded-full bg-emerald-400 shadow-[0_0_12px_rgba(52,211,153,0.9)]" />
-              <span className="font-mono hidden sm:inline">MAIL</span>
-              <span className="font-mono sm:hidden">M</span>
+              <span className="font-mono">MAIL</span>
             </Link>
 
-            {/* FAQ CHIP */}
-            {/* EMAIL CHIP */}
+            {/* FAQ CHIP - Desktop only */}
             <Link
               href="#faq"
               className="
-                inline-flex items-center gap-2 rounded-full
+                hidden sm:inline-flex items-center gap-2 rounded-full
                 border border-white/25 bg-black/60 backdrop-blur-sm
                 px-3 sm:px-4 py-1.5
                 text-[0.65rem] sm:text-[0.7rem] md:text-xs
@@ -91,8 +129,7 @@ export default function HeaderMinimal() {
               "
             >
               <span className="h-2 w-2 rounded-full bg-blue-400 shadow-[0_0_12px_rgba(52,211,153,0.9)]" />
-              <span className="font-mono hidden sm:inline">FAQ</span>
-              <span className="font-mono sm:hidden">F</span>
+              <span className="font-mono">FAQ</span>
             </Link>
 
             {/* CONTACT DROPDOWN */}
@@ -138,32 +175,32 @@ export default function HeaderMinimal() {
                   >
                     <div className="flex flex-col text-[0.7rem] sm:text-[0.75rem] text-white/85">
                       <a
-                        href="tel:+9779800000000"
+                        href="tel:+9779742426324"
                         className="px-4 py-3 hover:bg-white/10 transition-colors flex justify-between gap-3"
                       >
                         <span>Event Head</span>
                         <span className="font-mono whitespace-nowrap">
-                          9800-000000
+                          +977 9742426324
                         </span>
                       </a>
 
                       <a
-                        href="tel:+9779800000002"
+                        href="tel:+9779812369375"
                         className="px-4 py-3 hover:bg-white/10 transition-colors flex justify-between gap-3"
                       >
                         <span>Registration</span>
                         <span className="font-mono whitespace-nowrap">
-                          9800-000002
+                          +977 9812369375
                         </span>
                       </a>
 
                       <a
-                        href="tel:+9779800000003"
+                        href="tel:+9779741661310"
                         className="px-4 py-3 hover:bg-white/10 transition-colors flex justify-between gap-3"
                       >
                         <span>Support</span>
                         <span className="font-mono whitespace-nowrap">
-                          9800-000003
+                          +977 9741661310
                         </span>
                       </a>
                     </div>

@@ -2,106 +2,72 @@
 
 import { useState } from "react";
 
-
 const EVENT_DETAILS = [
   {
     id: "cozmo-clench",
     name: "COZMO CLENCH",
     tagline: "Manually Controlled Gripper Robot Challenge",
-    description: "The competition offers students an opportunity to design and build their own gripper robots capable of navigating obstacle-filled paths and accurately placing objects into designated target zones. Teams build manually controlled bots (wired or wireless) equipped with gripping mechanisms to traverse obstacles, pick up objects, and deposit them in target zones with minimum time. It serves as a platform to encourage teamwork, innovation, and practical application of engineering skills.",
+    description: "Design and build manually controlled gripper robots (wired or wireless) to navigate obstacle-filled arenas, pick up objects, and place them in target zones. Teams compete on speed, accuracy, and control precision.",
     highlights: [
-      "Manually controlled gripper bot competition (wired or wireless)",
-      "Navigate obstacle-filled arena with precision",
-      "Pick up designated objects and place in target zones",
-      "Speed, accuracy, and smooth control are key factors",
-      "Zonal qualifiers followed by Grand Finale at IIT Bombay Techfest 2025-26",
-      "Top 2 teams from each zone advance to finals",
-      "Tests mechanical design, control precision, and strategic operation",
-      "Must score above minimum cut-off to qualify for finals"
+      "Manually controlled gripper bot (wired or wireless)",
+      "Navigate obstacles and place objects in target zones",
+      "Judged on time, accuracy, and control smoothness",
+      "Top 2 teams per zone advance to IIT Bombay Techfest Grand Finale"
     ],
     rules: [
       "Register online through official ARC form",
-      "Team ID provided upon registration for all correspondence",
-      "Additional registration via Advanced Robotic Club form required",
-      "Bot must be manually controlled (wired or wireless control allowed)",
-      "Must navigate obstacles and place objects in target zones",
-      "Performance judged on time, accuracy, and control smoothness",
-      "Top 2 teams per zonal qualifier advance to Grand Finale",
-      "Teams must score above minimum cut-off mark to advance",
-      "Grand Finale held during IIT Bombay Techfest 2025-26",
-      "Decision of organizers and judges is final and binding",
-      "ARC not responsible for late, lost, or misdirected entries",
-      "Latest information on official ARC website",
-      "Check ARC email regularly for updates (including spam folder)"
+      "Bot must be manually controlled (wired or wireless)",
+      "Must score above cut-off to advance to finals",
+      "Grand Finale at IIT Bombay Techfest 2025-26",
+      "Check ARC email regularly for updates"
     ],
     teamSize: "Team-based (size TBD)",
     rulebook: "/rulebook/CozmoClench.pdf",
+    problemStatement: "https://techfest.org/media/compiProbStatement/Cozmoclench.pdf",
   },
   {
     id: "meshmerize",
     name: "MESH-MERIZE",
     tagline: "Line-Following Maze Navigation Robot",
-    description: "Meshmerize is a robotics competition where teams design and build a line-following robot capable of navigating a maze-based track. The bot must first complete a Dry Run to analyze and learn the path layout. In the Final Run, it utilizes the acquired data to traverse the maze efficiently and reach the endpoint in the shortest possible time, integrating automation, path optimization, and sensor-based control.",
+    description: "Build an autonomous line-following robot that navigates maze-based tracks. Complete a Dry Run to analyze the path, then use that data in the Final Run to traverse the maze in minimum time.",
     highlights: [
-      "Team size: Maximum 4 members per team",
-      "Autonomous line-following robot competition",
-      "Two-stage competition: Dry Run and Final Run",
-      "Dry run to analyze maze and record optimal path",
-      "Final run: Navigate using learned path in minimum time",
-      "Uses line sensors, microcontrollers (Arduino), and robotics components",
-      "Top 2 teams from each zonal qualifier advance to Grand Finale at IIT Bombay",
-      "Zonal qualifiers followed by Techfest 2025-26 Grand Finale"
+      "Maximum 4 members per team",
+      "Autonomous line-following robot with maze navigation",
+      "Two stages: Dry Run (analyze) + Final Run (optimized navigation)",
+      "Uses line sensors, Arduino, and robotics components",
+      "Top 2 teams per zone advance to IIT Bombay Techfest Grand Finale"
     ],
     rules: [
-      "Maximum 4 members per team from same institution (unless permitted)",
-      "Register online through official Techfest website",
-      "Team ID provided upon registration for all correspondence",
-      "Additional registration via Advanced Robotic Club form required",
-      "Robot must strictly follow design, dimension, and component specifications",
-      "Dry Run: Analyze maze and record optimal path",
-      "Final Run: Use learned path to complete maze in shortest time",
-      "Judging based on: completion time, path accuracy, movement smoothness, logic & optimization",
-      "Teams scoring above cut-off mark advance to finals",
-      "Top 2 teams per zonal qualifier advance to Grand Finale",
-      "Decision of judges and organizers is final and binding",
-      "Techfest IIT Bombay not responsible for late/lost entries or technical failures",
-      "Check Techfest email regularly for updates (including spam folder)",
-      "Latest information on official Techfest website"
+      "Maximum 4 members per team from same institution",
+      "Register via Techfest website and ARC form",
+      "Robot must follow design and component specifications",
+      "Dry Run: Analyze maze, Final Run: Complete in shortest time",
+      "Judged on time, accuracy, smoothness, and optimization",
+      "Top 2 teams per zone advance (above cut-off mark)"
     ],
     teamSize: "Maximum 4 members",
     rulebook: "/rulebook/Meshmerize.pdf",
+    problemStatement: "https://techfest.org/media/compiProbStatement/Meshmerize_final.docx.pdf",
   },
   {
     id: "codecode",
     name: "CODE CODE",
     tagline: "Competitive Programming & Problem-Solving Challenge",
-    description: "Code Code is a competitive programming event where participants use their coding skills to solve real-world and analytical problems within a given time frame. The challenge tests logic, efficiency, and problem-solving abilities across various programming languages. Teams tackle complex mathematical, logical, and algorithmic problems that require computational solutions and optimized code.",
+    description: "Team-based competitive programming event where you solve real-world mathematical, logical, and algorithmic problems in 3 hours. Test your coding efficiency and problem-solving skills.",
     highlights: [
-      "Duration: 3 hours of intensive coding",
-      "Team-based competition with collaborative problem-solving",
-      "All students with valid institutional ID cards eligible",
-      "Complex mathematical puzzles and numerical problems",
-      "Statistical analysis, physics simulations, and real-life scenarios",
-      "Algorithmic and logical problem-solving tasks",
+      "3-hour coding competition",
+      "Team-based collaborative problem-solving",
+      "Mathematical puzzles, physics simulations, algorithms",
       "Languages: C, C++, Java, Python",
-      "Offline compilers required - no internet access"
+      "Offline only - no internet or online compilers"
     ],
     rules: [
-      "Register online through official ARC website",
-      "Team ID issued upon registration for all correspondence",
-      "Additional registration via Advanced Robotic Club form required",
-      "Participants must bring their own fully charged laptops",
-      "Teams responsible for their own devices and equipment",
-      "Offline compilers must be pre-installed - online compilers strictly prohibited",
-      "Internet usage is strictly prohibited during competition",
-      "Mobile phones not allowed during competition",
-      "Solutions evaluated on accuracy, efficiency, and code correctness",
-      "Tiebreaker questions available in case of equal scores",
-      "Use of unauthorized tools leads to immediate disqualification",
-      "Organizers may modify rules - updates via website and email",
-      "Decision of judges and organizers is final and binding",
-      "ARC not responsible for late, lost, or misdirected entries",
-      "Check ARC email regularly for updates (including spam folder)"
+      "Register via ARC website",
+      "Bring your own fully charged laptop",
+      "Offline compilers required - online compilers prohibited",
+      "No internet or mobile phones allowed",
+      "Judged on accuracy, efficiency, and correctness",
+      "Tiebreaker questions available for equal scores"
     ],
     teamSize: "Team-based (size TBD)",
     rulebook: "/rulebook/CodeCode.pdf",
@@ -109,39 +75,31 @@ const EVENT_DETAILS = [
   {
     id: "techfest-olympiad",
     name: "TECHFEST OLYMPIAD",
-    tagline: "Scientific Aptitude & Problem-Solving Challenge",
-    description: "Techfest Olympiad provides a platform for students to enhance and showcase their scientific aptitude and problem-solving skills through real-life and analytical challenges. Participants must solve the maximum number of questions within a limited time to compete among the nation's brightest young minds. Only students studying in Grades 8, 9, and 10 are eligible to participate.",
+    tagline: "Nationwide Aptitude & Science Competition",
+    description: "A platform for students to showcase their scientific aptitude and problem-solving skills through real-life challenges. Participants solve the maximum questions within limited time to compete among the nation's brightest young minds. Exclusively for students in Grades 8, 9, and 10.",
     highlights: [
-      "Exclusively for students from Standard 8th, 9th, and 10th",
-      "Scientific aptitude and problem-solving competition",
-      "Real-life and analytical challenges",
-      "Time-bound question-solving format",
-      "Compete among nation's brightest young minds",
-      "Certificate of participation from IIT Bombay for all registered participants",
+      "Nationwide competition for Grades 8, 9, and 10 only",
+      "Zonal and final rounds in science, math, and logical reasoning",
+      "Quiz or written test format promoting analytical thinking",
+      "Certificate of participation from IIT Bombay for all participants",
       "Cash prizes and certificates for winners"
     ],
     rules: [
-      "Only students from Standard 8th, 9th, and 10th are eligible",
-      "College or higher secondary students are NOT eligible",
-      "Register online through official Techfest website",
-      "Team ID will be provided upon registration for all correspondence",
-      "Additional registration required via Advanced Robotic Club online form",
-      "Participants will not be allowed to compete physically at Techfest, IIT Bombay due to age restrictions",
-      "All registered participants will receive a certificate of participation from IIT Bombay",
-      "Cash prizes and certificates will be awarded to winners",
-      "Decision of judges and organizers is final and binding",
-      "Techfest IIT Bombay not responsible for late, lost, or misdirected entries",
-      "Official Techfest website contains most updated event details",
-      "Check Techfest email regularly for updates (including spam/junk folder)"
+      "Register online through official Techfest website and ARC form",
+      "Only Standard 8th, 9th, and 10th students eligible",
+      "Team ID issued upon registration for all communications",
+      "Physical competition at IIT Bombay restricted due to age limits",
+      "All participants receive IIT Bombay certificate of participation",
+      "Cash prizes and certificates awarded to winners",
+      "Judges' decisions are final and binding",
+      "Check Techfest website and email regularly for updates"
     ],
-    teamSize: "Individual/Team-based (size TBD)",
+    teamSize: "Individual or Team-based",
     rulebook: "/rulebook/TechfestOlympiad.pdf",
   }
 ];
 
-
-
-export default function EventDetails() {
+export default function EventDetailsG() {
   const [selectedEvent, setSelectedEvent] = useState(null);
   const [showRulebook, setShowRulebook] = useState(false);
 
@@ -164,11 +122,11 @@ export default function EventDetails() {
     <>
       {/* Event Detail Modal */}
       {selectedEvent && (
-        <div
-          className="fixed inset-0 z-50 bg-black/95 backdrop-blur-sm flex items-center justify-center p-4 overflow-y-auto"
+        <div 
+          className="fixed inset-0 z-50 bg-black/95 backdrop-blur-sm md:flex items-center justify-center p-4 overflow-y-auto hidden"
           onClick={closeEvent}
         >
-          <div
+          <div 
             className="relative w-full max-w-5xl bg-zinc-900 rounded-2xl shadow-2xl border border-white/10 my-8"
             onClick={(e) => e.stopPropagation()}
           >
@@ -181,6 +139,23 @@ export default function EventDetails() {
                   <p className="text-white/70 text-lg">{selectedEvent.tagline}</p>
                 </div>
                 <div className="flex items-center gap-3">
+                  {selectedEvent.problemStatement && (
+                    <a
+                      href={selectedEvent.problemStatement}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="px-4 py-2 bg-white/10 hover:bg-white/20 text-white text-sm rounded-lg transition-colors border border-white/20 flex items-center gap-2"
+                    >
+                      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                        <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
+                        <polyline points="14 2 14 8 20 8" />
+                        <line x1="16" y1="13" x2="8" y2="13" />
+                        <line x1="16" y1="17" x2="8" y2="17" />
+                        <polyline points="10 9 9 9 8 9" />
+                      </svg>
+                      Problem Statement
+                    </a>
+                  )}
                   {selectedEvent.rulebook && (
                     <button
                       onClick={openRulebook}
@@ -262,13 +237,130 @@ export default function EventDetails() {
         </div>
       )}
 
+      {/* Mobile Event Detail - Full Page */}
+      {selectedEvent && (
+        <div className="md:hidden fixed inset-0 z-50 bg-black overflow-y-auto">
+          <div className="min-h-screen px-4 py-6">
+            {/* Mobile Header */}
+            <div className="sticky top-0 bg-black/95 backdrop-blur-sm z-10 pb-4 mb-6 border-b border-white/10">
+              <div className="flex justify-between items-start mb-4">
+                <div className="flex-1">
+                  <p className="text-[0.65rem] uppercase tracking-widest text-white/60 mb-2">Event Details</p>
+                  <h2 className="text-2xl font-bold text-white mb-2">{selectedEvent.name}</h2>
+                  <p className="text-white/70 text-sm">{selectedEvent.tagline}</p>
+                </div>
+                <button
+                  onClick={closeEvent}
+                  className="w-9 h-9 flex items-center justify-center bg-white/10 hover:bg-white/20 rounded-full transition-colors flex-shrink-0 ml-3"
+                >
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2">
+                    <path d="M18 6L6 18M6 6l12 12" />
+                  </svg>
+                </button>
+              </div>
+              
+              {/* Mobile Action Buttons */}
+              <div className="flex flex-col gap-2">
+                {selectedEvent.problemStatement && (
+                  <a
+                    href={selectedEvent.problemStatement}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="w-full px-4 py-2.5 bg-white/10 hover:bg-white/20 text-white text-sm rounded-lg transition-colors border border-white/20 flex items-center justify-center gap-2"
+                  >
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                      <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
+                      <polyline points="14 2 14 8 20 8" />
+                      <line x1="16" y1="13" x2="8" y2="13" />
+                      <line x1="16" y1="17" x2="8" y2="17" />
+                      <polyline points="10 9 9 9 8 9" />
+                    </svg>
+                    View Problem Statement
+                  </a>
+                )}
+                {selectedEvent.rulebook && (
+                  <button
+                    onClick={openRulebook}
+                    className="w-full px-4 py-2.5 bg-white/10 hover:bg-white/20 text-white text-sm rounded-lg transition-colors border border-white/20 flex items-center justify-center gap-2"
+                  >
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                      <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
+                      <polyline points="14 2 14 8 20 8" />
+                    </svg>
+                    View Rulebook
+                  </button>
+                )}
+              </div>
+            </div>
+
+            {/* Mobile Content */}
+            <div className="space-y-8 pb-8">
+              {/* Description */}
+              <div>
+                <h3 className="text-xs uppercase tracking-widest text-white/60 mb-3">About</h3>
+                <p className="text-white/80 text-base leading-relaxed">{selectedEvent.description}</p>
+              </div>
+
+              {/* Team Size */}
+              <div>
+                <h3 className="text-xs uppercase tracking-widest text-white/60 mb-3">Team Size</h3>
+                <p className="text-white text-lg font-semibold">{selectedEvent.teamSize}</p>
+              </div>
+
+              {/* Highlights */}
+              <div>
+                <h3 className="text-xs uppercase tracking-widest text-white/60 mb-4">Event Highlights</h3>
+                <div className="space-y-3">
+                  {selectedEvent.highlights.map((highlight, idx) => (
+                    <div key={idx} className="flex items-start gap-3 bg-white/5 p-4 rounded-lg border border-white/10">
+                      <svg className="w-5 h-5 text-white/60 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                        <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+                      </svg>
+                      <span className="text-white/80 text-sm">{highlight}</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              {/* Sub Events if any */}
+              {selectedEvent.subEvents && (
+                <div>
+                  <h3 className="text-xs uppercase tracking-widest text-white/60 mb-4">Included Events</h3>
+                  <div className="space-y-4">
+                    {selectedEvent.subEvents.map((subEvent, idx) => (
+                      <div key={idx} className="bg-white/5 p-5 rounded-lg border border-white/10">
+                        <h4 className="text-lg font-semibold text-white mb-2">{subEvent.name}</h4>
+                        <p className="text-white/70 text-sm">{subEvent.description}</p>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              )}
+
+              {/* Rules */}
+              <div>
+                <h3 className="text-xs uppercase tracking-widest text-white/60 mb-4">Rules & Regulations</h3>
+                <div className="space-y-3">
+                  {selectedEvent.rules.map((rule, idx) => (
+                    <div key={idx} className="flex items-start gap-3 text-white/70 text-sm">
+                      <span className="text-white/60 font-bold flex-shrink-0">{idx + 1}.</span>
+                      <span>{rule}</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
+
       {/* Rulebook Modal */}
       {showRulebook && selectedEvent?.rulebook && (
-        <div
+        <div 
           className="fixed inset-0 z-[60] bg-black/95 backdrop-blur-sm flex items-center justify-center p-4"
           onClick={() => setShowRulebook(false)}
         >
-          <div
+          <div 
             className="relative w-full h-full max-w-7xl max-h-[95vh] bg-zinc-900 rounded-2xl shadow-2xl overflow-hidden border border-white/10"
             onClick={(e) => e.stopPropagation()}
           >
@@ -312,7 +404,7 @@ export default function EventDetails() {
       )}
 
       {/* Main Section */}
-      <section className="bg-black text-white py-24 px-4 sm:px-8 lg:px-16">
+      <section id="event-details-section" className="bg-black text-white py-24 px-4 sm:px-8 lg:px-16">
         <div className="max-w-7xl mx-auto">
           {/* Events Grid */}
           <div className="grid md:grid-cols-2 gap-6 lg:gap-8">
@@ -327,10 +419,10 @@ export default function EventDetails() {
                 <h3 className="text-2xl font-bold text-white mb-2 transition-colors">
                   {event.name}
                 </h3>
-
+                
                 {/* Tagline */}
                 <p className="text-white/60 text-sm mb-4 font-medium">{event.tagline}</p>
-
+                
                 {/* Brief Description */}
                 <p className="text-white/60 text-sm mb-6 line-clamp-3">
                   {event.description}

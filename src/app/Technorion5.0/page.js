@@ -5,9 +5,9 @@ import { BackgroundPaths } from "../components/bits/ui/background-paths";
 import Carousel from "../components/Carousel";
 import Marquee from "../components/Marquee";
 import EventFaqs from "../components/Faqs";
-
+import Timeline from "../components/Timeline";
 import RegistrationForms from "../components/Forms";
-import EventDetails from "../components/EventDetailstemp";
+import EventDetails from "../components/EventDetails";
 import AboutUs from "../components/AboutUs";
 import Footer from "../components/Footer";
 import RegistrationDataSlabs from "../components/Register";
@@ -21,15 +21,17 @@ export default function Home() {
         <TechEventStats /> 
         <Marquee />
         <HeroMain /> 
-       <EventArtGallery /> 
+        <EventArtGallery /> 
 
 
         <EventDetails/> 
+
         <RegistrationDataSlabs/>
       
-      <RegistrationForms/>
+        <RegistrationForms/>
         <EventFaqs />
         <AboutUs />
+        <Timeline />
         <Footer/>
         <Carousel />
       </div>
